@@ -16,11 +16,10 @@
 ## new dataframe to contain 12 rows of person per room
 ### Done.
 
-## borders around the cells
-### Done.
-
 ## specify column width
 ### Done.
 
 ## merge read_door into formatting
+### Done.
 
+## need to add borders to specific cells 
