@@ -10,7 +10,17 @@
 ### pip install pandas --user
 ### pip install xlsxwriter --user
 ### pip install openpyxl --user
+### pip install Jinja2 --user
 ### (optional) install Git from website: https://git-scm.com/download/win
 
 ## new dataframe to contain 12 rows of person per room
-### 
+### Done.
+
+## borders around the cells
+### Done.
+
+## specify column width
+### Done.
+
+## merge read_door into formatting
+

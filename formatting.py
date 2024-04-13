@@ -2,17 +2,14 @@ import pandas as pd
 import xlsxwriter
 import datetime
 
+#read the excel file
 df = pd.read_excel('sample2.xlsx', skiprows=1)
 
 #sorting by column 'UNIT NO'
 df.sort_values(by='UNIT NO', inplace=True)
 
-print(df)
-
 #remove duplicate 'Unit No' column and keep the first occurence
 unit_no_list = list(dict.fromkeys(df['UNIT NO']))
-print(unit_no_list)
-
 
 #create empty dataframe with 1 empty rows
 empty_data = {col: ['']*1 for col in df.columns}
@@ -49,16 +46,30 @@ for x in unit_no_list:
         filtered_df = pd.concat([filtered_df, empty_df, empty_df, empty_df, empty_df], ignore_index=True)
     #increment i    
     j += 1
-    
-    #print filtered dataframe
-    print(filtered_df)
+
     #append to new dataframe
     new_df = pd.concat([new_df, new_heading, filtered_df], ignore_index=True)
 
+#create a writer object using xlsxwriter as the engine
+writer = pd.ExcelWriter('formatting.xlsx', engine='xlsxwriter')
 
-#print new dataframe
-print(new_df)
+# Write the dataframe data to xlsxwriter
+new_df.to_excel(writer, sheet_name='Sheet1', index=False, header=False)
 
+# Get the xlsxwriter workbook and worksheet objects.
+workbook = writer.book
+worksheet = writer.sheets['Sheet1']
 
-#save to new excel file
-new_df.to_excel('sample_sorted.xlsx', index=False, header=False)
+# add a border format to use to highlight cells.
+border = workbook.add_format({'border': 1})
+
+# set column width
+worksheet.set_column('A:A', 30)
+worksheet.set_column('B:B', 20)
+
+# Write some data to the worksheet.
+worksheet.write('A5', None, border)
+worksheet.write('B3', None, border)
+
+#close the Pandas Excel writer and output the Excel file
+workbook.close()
