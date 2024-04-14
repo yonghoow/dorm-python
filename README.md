@@ -22,4 +22,7 @@
 ## merge read_door into formatting
 ### Done.
 
-## need to add borders to specific cells 
+## need to add borders to specific cells
+### Done.
+
+## need to read the latest Door_YYYYMMDDhhmmss.xlsx from Downloads folder
