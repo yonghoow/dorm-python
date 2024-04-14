@@ -1,9 +1,31 @@
 import pandas as pd
 import xlsxwriter
 import datetime
+import glob
+import os
+
+#read latest file with format door.xls
+
+def read_latest_file(pattern):
+    for file_path in glob.glob(pattern):
+        
+        print('Found file pattern: ', file_path)
+        latest_file = max(glob.glob(pattern), key=os.path.getctime)
+        print('latest file: ', latest_file)
+
+    return latest_file    
+
+#get the filename
+pattern = '../Door*.xls'
+file = read_latest_file(pattern)
+print('File: ', file)
 
 #read the excel file
-df = pd.read_excel('sample2.xlsx', skiprows=1)
+df = pd.read_excel(file, skiprows=1)
+
+#remove all rows with '--' in 'UNIT NO' column
+df = df.drop(df[df['UNIT NO'] == '--'].index)
+
 
 #sorting by column 'UNIT NO'
 df.sort_values(by='UNIT NO', inplace=True)
