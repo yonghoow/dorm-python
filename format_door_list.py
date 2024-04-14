@@ -9,16 +9,17 @@ import os
 def read_latest_file(pattern):
     for file_path in glob.glob(pattern):
         
-        print('Found file pattern: ', file_path)
         latest_file = max(glob.glob(pattern), key=os.path.getctime)
-        print('latest file: ', latest_file)
+        
 
     return latest_file    
 
 #get the filename
 pattern = '../Door*.xls'
 file = read_latest_file(pattern)
-print('File: ', file)
+
+#print some message
+print('Reading door list in Downloads folder. Please wait... ')
 
 #read the excel file
 df = pd.read_excel(file, skiprows=1)
@@ -88,7 +89,6 @@ border = workbook.add_format({'border': 1})
 
 #print the number of rows in the dataframe
 rows = len(new_df)
-print('no. of rows in dataframe: ', rows)
 
 #conditional formatting
 # Add a format. Border is needed for the conditional formatting to work
@@ -133,3 +133,5 @@ worksheet.set_default_row(33)
 #close the Pandas Excel writer and output the Excel file
 workbook.close()
 
+# print some message
+print('Done. File: door_formatted in Downloads folder.')
