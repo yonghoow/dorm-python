@@ -73,7 +73,7 @@ for x in unit_no_list:
     new_df = pd.concat([new_df, new_heading, filtered_df], ignore_index=True)
 
 #create a writer object using xlsxwriter as the engine
-writer = pd.ExcelWriter('formatting.xlsx', engine='xlsxwriter')
+writer = pd.ExcelWriter('../door_formatted.xlsx', engine='xlsxwriter')
 
 # Write the dataframe data to xlsxwriter
 new_df.to_excel(writer, sheet_name='Sheet1', index=False, header=False)
@@ -132,3 +132,6 @@ worksheet.set_default_row(33)
 
 #close the Pandas Excel writer and output the Excel file
 workbook.close()
+
+#press enter to exit
+input('Press Enter to exit')
