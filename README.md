@@ -10,7 +10,6 @@
 ### pip install pandas --user
 ### pip install xlsxwriter --user
 ### pip install openpyxl --user
-### pip install Jinja2 --user
 ### pip install xlrd --user
 ### (optional) install Git from website: https://git-scm.com/download/win
 

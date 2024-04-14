@@ -133,5 +133,3 @@ worksheet.set_default_row(33)
 #close the Pandas Excel writer and output the Excel file
 workbook.close()
 
-#press enter to exit
-input('Press Enter to exit')

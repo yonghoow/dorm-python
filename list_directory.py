@@ -17,4 +17,3 @@ pattern = '../Door*.xls'
 file = read_latest_file(pattern)
 print('File: ', file)
 
-
