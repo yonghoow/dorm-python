@@ -19,7 +19,7 @@ pattern = '../Door*.xls'
 file = read_latest_file(pattern)
 
 #print some message
-print('Reading door list in Downloads folder. Please wait... ')
+#print('Reading door list in Downloads folder. Please wait... ')
 
 #read the excel file
 df = pd.read_excel(file, skiprows=1)
@@ -28,10 +28,10 @@ df = pd.read_excel(file, skiprows=1)
 df = df.drop(df[df['UNIT NO'] == '--'].index)
 
 #remove all rows with 'B*' in 'UNIT NO' column
-df = df.drop(df[df['UNIT NO'].str.contains('B', na=False)].index)
+df = df.drop(df[df['UNIT NO'].str.contains('A', na=False)].index)
 
 #remove all rows with 'C*' in 'UNIT NO' column
-df = df.drop(df[df['UNIT NO'].str.contains('C', na=False)].index)
+df = df.drop(df[df['UNIT NO'].str.contains('B', na=False)].index)
 
 
 #sorting by column 'UNIT NO'
@@ -80,7 +80,7 @@ for x in unit_no_list:
     new_df = pd.concat([new_df, new_heading, filtered_df], ignore_index=True)
 
 #create a writer object using xlsxwriter as the engine
-writer = pd.ExcelWriter('../door_formatted.xlsx', engine='xlsxwriter')
+writer = pd.ExcelWriter('../door_formatted_C.xlsx', engine='xlsxwriter')
 
 # Write the dataframe data to xlsxwriter
 new_df.to_excel(writer, sheet_name='Sheet1', index=False, header=False)
@@ -141,4 +141,4 @@ worksheet.set_default_row(33)
 workbook.close()
 
 # print some message
-print('Done. File: door_formatted_margin in Downloads folder.')
+#print('Done. File: door_formatted_margin in Downloads folder.')
