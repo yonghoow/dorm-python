@@ -114,6 +114,7 @@ while G_value < rows:
         k += 1
 
 
+"""
 # set column width
 worksheet.set_column('A:A', 7.7)
 worksheet.set_column('B:B', 55.7)
@@ -127,11 +128,11 @@ worksheet.set_column('G:G', 8.1)
 
 #set row height
 worksheet.set_default_row(33)
-
+"""
 
 
 #close the Pandas Excel writer and output the Excel file
 workbook.close()
 
 # print some message
-print('Done. File: door_formatted in Downloads folder.')
+print('Done. File: door_formatted_margin in Downloads folder.')
