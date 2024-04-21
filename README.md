@@ -31,3 +31,8 @@
 ## need to exclude unit number: '--'.
 ### Done.
 
+## need to follow alignment: 
+## Top: 1.5, Left: 0.4, Bottom: 1, Right:0.4, Header: 0.8, Footer: 0.8
+## scale: 65%
+## output as 3 files: cluster A, Cluster B, Cluster C
+
